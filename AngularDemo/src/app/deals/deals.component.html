@@ -1,0 +1,39 @@
+
+
+<br><br>
+<p style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;margin-left: 40px; font-size: 40px;float: left;" >Deals</p>
+<div class="Container">
+  <div class="row">
+    <div class="search-hero">
+      <input class="search"style="margin-left: 100px; margin-top: 20px;width: 300px; border-radius: 20px;height: 40px;background-color: aquamarine" type="text"[(ngModel)]="term" placeholder="search by First or LastName or email  ..">
+    </div>
+  </div>
+</div>
+<br><br>
+<div class="flex-container">
+
+<button style="border: dashed;" class="btn2 "> Add card</button>
+<button style ="border: dashed;" class="btn1 "> Delete card</button>
+</div>
+<br><br>
+
+    <div class="Container"cdkDropListGroup>
+      <div class="row"cdkDropList  [cdkDropListData]="deals"(cdkDropListDropped)="drop($event)">
+        <div class="card"*ngFor="let deal of deals |filter:term" [cdkDragData]="deal" cdkDrag>
+    <p class="card-text"><strong>ID</strong> :{{deal.id}}</p>
+    <p class="card-title" ><strong>first_name</strong> {{deal.first_name}}</p>
+    <p class="card-title"><strong>last_name</strong>  {{deal.last_name}}</p>
+    <p class="card-title"><strong>Email</strong>  {{deal.email}}</p>
+    <p  class="card-text bi bi-telephone-fill ">  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+    </svg><strong>Phone</strong>
+      {{deal.phone}}</p>
+      <p class="card-text"><strong>Company </strong>{{deal.company}}</p>
+    <p class="card-text"><strong>Status</strong> {{deal.status}}</p>
+    <p class="card-text bg-success"><strong>state :</strong>{{deal.state}}</p>
+    <p class="card-text bg-light" ><strong>probability : </strong>{{deal.probability_status}}</p>
+
+  </div>
+  </div>
+  </div>
+
